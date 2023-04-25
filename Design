@@ -1,0 +1,45 @@
+from kivy.app import App
+from kivy.lang import Builder
+from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.animation import Animation
+from kivy.core.window import Window
+from kivy.uix.image import Image
+from kivy.uix.behaviors import ButtonBehavior
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.relativelayout import RelativeLayout
+from kivy.config import Config
+from kivy.uix.floatlayout import FloatLayout
+from kivy.uix.button import Button
+import json, glob
+from datetime import datetime
+from pathlib import Path
+import random
+Window.size =(500,500)
+Builder.load_file('Design.kv')
+
+
+class LoginScreen(Screen):
+    def sign_up(self):
+        self.manager.current = "sign_up_screen"
+class SignUpScreen(Screen):
+    def login(self):
+        self.manager.current = "login_screen"
+
+    
+
+class RootWidget(ScreenManager):
+    pass
+
+class SignUpScreen(Screen):
+    pass
+
+
+class ImageButton(ButtonBehavior,  Image):
+    pass
+
+class bianca(App):
+    def build(self):
+        return RootWidget()
+
+if __name__ == "__main__":
+    bianca().run()
